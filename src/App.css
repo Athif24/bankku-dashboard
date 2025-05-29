@@ -1,0 +1,95 @@
+.App {
+  min-height: 100vh;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .dashboard-row {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .sidebar {
+    width: 200px;
+  }
+  
+  .chart-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pie-chart-container {
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: fixed;
+    left: -100%;
+    z-index: 1000;
+    transition: left var(--transition-normal);
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .page-content {
+    padding: var(--spacing-md);
+  }
+  
+  .header-actions .search-bar {
+    display: none;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contacts-row {
+    flex-wrap: wrap;
+  }
+  
+  .transfer-form {
+    flex-direction: column;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .loan-types-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .table-container {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .loan-types-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chart-bars {
+    gap: 1px;
+  }
+  
+  .bar {
+    width: 12px;
+  }
+  
+  .contacts-row {
+    justify-content: center;
+  }
+  
+  .contact-item {
+    min-width: 80px;
+  }
+}

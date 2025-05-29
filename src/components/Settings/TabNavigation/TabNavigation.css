@@ -1,0 +1,30 @@
+.tab-navigation {
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: var(--spacing-xl);
+}
+
+.tab-nav {
+  display: flex;
+  gap: var(--spacing-2xl);
+}
+
+.tab-btn {
+  padding: var(--spacing-sm) var(--spacing-xs);
+  border: none;
+  background: none;
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  color: var(--gray-500);
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  color: var(--gray-700);
+}
+
+.tab-btn.active {
+  color: var(--primary-blue);
+  border-bottom-color: var(--primary-blue);
+}

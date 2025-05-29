@@ -1,0 +1,40 @@
+.loan-type-card {
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-xl);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.loan-type-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.loan-icon-container {
+  margin-bottom: var(--spacing-md);
+}
+
+.loan-icon {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loan-type-name {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.loan-amount {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+}

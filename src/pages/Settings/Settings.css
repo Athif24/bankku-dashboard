@@ -1,0 +1,11 @@
+.settings-page {
+  max-width: 1000px;
+}
+
+.settings-container {
+  padding: var(--spacing-2xl);
+}
+
+.tab-content {
+  margin-top: var(--spacing-xl);
+}

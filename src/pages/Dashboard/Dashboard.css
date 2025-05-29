@@ -1,0 +1,20 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.dashboard-row {
+  display: grid;
+  gap: var(--spacing-xl);
+  grid-template-columns: 1fr;
+}
+
+.dashboard-row:first-child {
+  grid-template-columns: 2fr 1fr;
+}
+
+.dashboard-row:nth-child(2),
+.dashboard-row:nth-child(3) {
+  grid-template-columns: 1fr 1fr;
+}

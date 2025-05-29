@@ -1,0 +1,97 @@
+.quick-transfer-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.contacts-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.contact-item {
+  text-align: center;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+}
+
+.contact-item:hover,
+.contact-item.selected {
+  background-color: var(--gray-50);
+}
+
+.contact-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto var(--spacing-sm);
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-name {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--gray-900);
+  margin-bottom: var(--spacing-xs);
+}
+
+.contact-role {
+  font-size: var(--font-size-xs);
+  color: var(--gray-500);
+}
+
+.more-contacts-btn {
+  width: 64px;
+  height: 64px;
+  background-color: var(--gray-100);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chevron-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--gray-600);
+}
+
+.transfer-form {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.amount-input-container {
+  flex: 1;
+}
+
+.amount-input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+}
+
+.send-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+.send-icon {
+  width: 16px;
+  height: 16px;
+}

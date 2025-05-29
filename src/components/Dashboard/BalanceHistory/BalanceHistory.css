@@ -1,0 +1,40 @@
+.balance-history-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.chart-area {
+  margin-top: var(--spacing-xl);
+}
+
+.line-chart {
+  height: 200px;
+  margin-bottom: var(--spacing-md);
+}
+
+.chart-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-lines line {
+  opacity: 0.3;
+}
+
+.data-points circle {
+  cursor: pointer;
+}
+
+.data-points circle:hover {
+  r: 6;
+}
+
+.x-axis-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-sm);
+}
+
+.month-label {
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+}
