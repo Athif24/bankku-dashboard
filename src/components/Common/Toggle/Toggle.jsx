@@ -9,15 +9,16 @@ const Toggle = ({ checked, onChange, disabled = false }) => {
   };
 
   return (
-    <button
-      type="button"
-      className={`toggle-switch ${checked ? 'active' : 'inactive'}`}
-      onClick={handleToggle}
-      disabled={disabled}
-      aria-pressed={checked}
-    >
-      <span className="toggle-thumb" />
-    </button>
+    <label className={`modern-toggle ${disabled ? 'disabled' : ''}`}>
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={handleToggle}
+        disabled={disabled}
+        className="toggle-input"
+      />
+      <span className={`toggle-slider ${checked ? 'active' : ''}`}></span>
+    </label>
   );
 };
 

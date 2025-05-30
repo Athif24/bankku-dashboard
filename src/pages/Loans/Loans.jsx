@@ -6,7 +6,8 @@ import './Loans.css';
 
 const Loans = () => {
   const handleLoanTypeClick = (loanType) => {
-    alert(`You selected: ${loanType.type}`);
+    // Implement navigation or modal for loan application
+    console.log(`Selected: ${loanType.type}`);
   };
 
   return (

@@ -1,25 +1,48 @@
-.quick-transfer-section {
-  margin-bottom: var(--spacing-xl);
+.quick-transfer-wrapper {
+  margin-bottom: 0;
+  width: 100%;
+  height: 100%; /* Take full height of parent */
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-transfer-card {
+  background: white;
+  border-radius: 25px;
+  padding: 30px;
+  border: 1px solid #F5F7FA;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  flex: 1; /* Take remaining space after header */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section-header {
+  margin-bottom: 20px;
+  flex-shrink: 0; /* Prevent header from shrinking */
 }
 
 .contacts-row {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
+  gap: 16px;
+  margin-bottom: 30px;
+  flex-shrink: 0;
 }
 
 .contact-item {
   text-align: center;
   cursor: pointer;
-  padding: var(--spacing-sm);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-fast);
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  min-width: 80px;
 }
 
 .contact-item:hover,
 .contact-item.selected {
-  background-color: var(--gray-50);
+  background-color: #f3f4f6;
 }
 
 .contact-avatar {
@@ -27,49 +50,85 @@
   height: 64px;
   border-radius: 50%;
   overflow: hidden;
-  margin: 0 auto var(--spacing-sm);
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border: 2px solid #e5e7eb;
 }
 
 .avatar-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Fallback avatar styling */
+.avatar-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+  border-radius: 50%;
+}
+
+.fallback-icon {
+  width: 28px;
+  height: 28px;
+  color: #6b7280;
 }
 
 .contact-name {
-  font-size: var(--font-size-sm);
+  font-size: 16px;
   font-weight: 500;
-  color: var(--gray-900);
-  margin-bottom: var(--spacing-xs);
+  color: #232323;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .contact-role {
-  font-size: var(--font-size-xs);
-  color: var(--gray-500);
+  font-size: 15px;
+  color: #718EBF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .more-contacts-btn {
   width: 64px;
   height: 64px;
-  background-color: var(--gray-100);
+  background-color: #f3f4f6;
   border: none;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.more-contacts-btn:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-1px);
 }
 
 .chevron-icon {
   width: 24px;
   height: 24px;
-  color: var(--gray-600);
+  color: #6b7280;
 }
 
 .transfer-form {
   display: flex;
-  gap: var(--spacing-md);
+  gap: 16px;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .amount-input-container {
@@ -78,20 +137,190 @@
 
 .amount-input {
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: 1px solid var(--gray-300);
-  border-radius: var(--radius-lg);
-  font-size: var(--font-size-base);
+  padding: 16px 20px;
+  border: 1px solid #E5E7EB;
+  border-radius: 50px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  background: #F9FAFB;
+}
+
+.amount-input:focus {
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+  background: white;
+}
+
+.amount-input::placeholder {
+  color: #9CA3AF;
 }
 
 .send-btn {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-lg);
+  gap: 8px;
+  padding: 16px 28px;
+  background: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.send-btn:hover {
+  background: #3182ce;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.25);
 }
 
 .send-icon {
   width: 16px;
   height: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .quick-transfer-card {
+    padding: 25px;
+  }
+  
+  .contact-avatar {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .more-contacts-btn {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .fallback-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .contact-name {
+    font-size: 15px;
+  }
+  
+  .contact-role {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .quick-transfer-card {
+    padding: 20px;
+  }
+  
+  .contacts-row {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .transfer-form {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quick-transfer-card {
+    padding: 18px;
+  }
+  
+  .contacts-row {
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  
+  .contact-item {
+    min-width: 70px;
+    padding: 8px;
+  }
+  
+  .contact-avatar {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+  }
+  
+  .fallback-icon {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .contact-name {
+    font-size: 14px;
+  }
+  
+  .contact-role {
+    font-size: 13px;
+  }
+  
+  .more-contacts-btn {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+  }
+  
+  .transfer-form {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .send-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+  
+  .amount-input {
+    padding: 14px 18px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-transfer-card {
+    padding: 16px;
+  }
+  
+  .contact-avatar {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .more-contacts-btn {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .fallback-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .contact-name {
+    font-size: 13px;
+  }
+  
+  .contact-role {
+    font-size: 12px;
+  }
+  
+  .amount-input {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .send-btn {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
 }

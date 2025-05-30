@@ -30,58 +30,59 @@ const PreferencesTab = () => {
 
   return (
     <div className="preferences-tab">
-      <div className="preferences-section">
-        <div className="settings-grid">
-          <div className="setting-group">
-            <h3 className="setting-title">Currency</h3>
-            <div className="setting-value">
-              <div className="currency-display">
-                <span className="currency-text">{preferences.currency}</span>
-              </div>
-            </div>
-          </div>
-          <div className="setting-group">
-            <h3 className="setting-title">Time Zone</h3>
-            <div className="setting-value">
-              <div className="timezone-display">
-                <span className="timezone-text">{preferences.timezone}</span>
-              </div>
-            </div>
+      {/* Currency and Time Zone Section */}
+      <div className="settings-grid">
+        <div className="setting-field">
+          <label className="field-label">Currency</label>
+          <div className="field-box">
+            <span className="field-value">{preferences.currency}</span>
           </div>
         </div>
+        
+        <div className="setting-field">
+          <label className="field-label">Time Zone</label>
+          <div className="field-box">
+            <span className="field-value timezone-value">{preferences.timezone}</span>
+          </div>
+        </div>
+      </div>
 
-        <div className="notification-section">
-          <h3 className="section-title">Notification</h3>
-          <div className="notification-list">
-            <div className="notification-item">
-              <span className="notification-text">I send or receive digita currency</span>
-              <Toggle 
-                checked={preferences.notifications.digitalCurrency}
-                onChange={(value) => handleNotificationChange('digitalCurrency', value)}
-              />
-            </div>
-            <div className="notification-item">
-              <span className="notification-text">I receive merchant order</span>
-              <Toggle 
-                checked={preferences.notifications.merchantOrder}
-                onChange={(value) => handleNotificationChange('merchantOrder', value)}
-              />
-            </div>
-            <div className="notification-item">
-              <span className="notification-text">There are recommendation for my account</span>
-              <Toggle 
-                checked={preferences.notifications.recommendations}
-                onChange={(value) => handleNotificationChange('recommendations', value)}
-              />
-            </div>
+      {/* Notification Section */}
+      <div className="notification-section">
+        <h2 className="notification-title">Notification</h2>
+        
+        <div className="notification-items">
+          <div className="notification-row">
+            <span className="notification-text">I send or receive digita currency</span>
+            <Toggle 
+              checked={preferences.notifications.digitalCurrency}
+              onChange={(value) => handleNotificationChange('digitalCurrency', value)}
+            />
+          </div>
+          
+          <div className="notification-row">
+            <span className="notification-text">I receive merchant order</span>
+            <Toggle 
+              checked={preferences.notifications.merchantOrder}
+              onChange={(value) => handleNotificationChange('merchantOrder', value)}
+            />
+          </div>
+          
+          <div className="notification-row">
+            <span className="notification-text">There are recommendation for my account</span>
+            <Toggle 
+              checked={preferences.notifications.recommendations}
+              onChange={(value) => handleNotificationChange('recommendations', value)}
+            />
           </div>
         </div>
+      </div>
 
-        <div className="form-actions">
-          <button className="save-btn btn-primary" onClick={handleSave}>
-            Save
-          </button>
-        </div>
+      {/* Save Button */}
+      <div className="save-container">
+        <button className="save-button" onClick={handleSave}>
+          Save
+        </button>
       </div>
     </div>
   );

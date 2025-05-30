@@ -57,6 +57,23 @@
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 250ms ease-in-out;
   --transition-slow: 350ms ease-in-out;
+
+  /* Loan Card Colors */
+  --loan-personal-bg: #F0F9FF;
+  --loan-personal-icon: #3B82F6;
+  
+  --loan-corporate-bg: #FFF7ED;
+  --loan-corporate-icon: #FB923C;
+  
+  --loan-business-bg: #FDF2F8;
+  --loan-business-icon: #EC4899;
+  
+  --loan-custom-bg: #F0FDFA;
+  --loan-custom-icon: #14B8A6;
+  
+  /* Additional shadows for cards */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* Global Reset */
@@ -64,6 +81,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -74,6 +96,14 @@ body {
   background-color: var(--gray-50);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+  min-height: 100vh;
 }
 
 /* Utility Classes */
@@ -83,12 +113,56 @@ body {
   padding: 0 var(--spacing-md);
 }
 
+.dashboard-card {
+  background: white;
+  border-radius: 25px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow var(--transition-fast);
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Remove default .card class usage from dashboard components */
 .card {
   background: white;
-  border-radius: var(--radius-2xl);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-200);
+  border-radius: 25px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Section Header - Consistent across all dashboard components */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.see-all-btn {
+  color: var(--primary-blue);
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.see-all-btn:hover {
+  background-color: var(--gray-100);
+  color: var(--primary-blue-dark);
 }
 
 .btn {
@@ -186,4 +260,20 @@ body {
 
 .animate-fade-in {
   animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive Adjustments for Section Headers */
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .section-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  .see-all-btn {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs);
+  }
 }

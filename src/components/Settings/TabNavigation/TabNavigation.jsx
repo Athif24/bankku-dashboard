@@ -12,7 +12,7 @@ const TabNavigation = ({ activeTab, setActiveTab }) => {
             onClick={() => setActiveTab(tab.id)}
             className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
           >
-            {tab.label}
+            <span className="tab-label">{tab.label}</span>
           </button>
         ))}
       </nav>

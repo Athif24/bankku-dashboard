@@ -15,13 +15,13 @@ const Settings = ({ activeTab, setActiveTab }) => {
       case 'security':
         return <SecurityTab />;
       default:
-        return <SecurityTab />;
+        return <ProfileTab />;
     }
   };
 
   return (
     <div className="settings-page">
-      <div className="settings-container card">
+      <div className="settings-card">
         <TabNavigation 
           activeTab={activeTab} 
           setActiveTab={setActiveTab}

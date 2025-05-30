@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
-import Toggle from '../../Common/Toggle/Toggle';
 import './SecurityTab.css';
 
 const SecurityTab = () => {
-  const [twoFactorEnabled, setTwoFactorEnabled] = useState(true);
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [twoFactorEnabled, setTwoFactorEnabled] = useState(false);
   const [passwords, setPasswords] = useState({
-    current: '**********',
-    new: '**********'
+    current: '',
+    new: ''
   });
 
   const handlePasswordChange = (field, value) => {
@@ -20,73 +16,68 @@ const SecurityTab = () => {
   };
 
   const handleSave = () => {
+    console.log('Security settings saved');
     alert('Security settings saved successfully!');
-    console.log('Two-factor authentication:', twoFactorEnabled);
-    console.log('Password updated');
   };
 
   return (
     <div className="security-tab">
-      <div className="security-section">
-        <div className="two-factor-section">
-          <h3 className="section-title">Two-factor Authentication</h3>
-          <div className="two-factor-setting">
-            <span className="setting-text">Enable or disable two factor authentication</span>
-            <Toggle 
+      
+      {/* Two-Factor Authentication Section */}
+      <div className="security-group">
+        <div className="section-info">
+          <h2 className="section-title">Two-Factor Authentication</h2>
+          <p className="section-subtitle">Enable or disable two factor authentication</p>
+        </div>
+        <div className="toggle-wrapper">
+          <label className="security-toggle">
+            <input
+              type="checkbox"
               checked={twoFactorEnabled}
-              onChange={setTwoFactorEnabled}
+              onChange={(e) => setTwoFactorEnabled(e.target.checked)}
+              className="toggle-checkbox"
+            />
+            <span className="toggle-track"></span>
+          </label>
+        </div>
+      </div>
+
+      {/* Change Password Section */}
+      <div className="security-group password-section">
+        <h2 className="section-title">Change Password</h2>
+        
+        <div className="password-fields">
+          <div className="field-group">
+            <label className="field-label">Current Password</label>
+            <input
+              type="password"
+              placeholder="**********"
+              value={passwords.current}
+              onChange={(e) => handlePasswordChange('current', e.target.value)}
+              className="password-field"
+            />
+          </div>
+          
+          <div className="field-group">
+            <label className="field-label">New Password</label>
+            <input
+              type="password"
+              placeholder="**********"
+              value={passwords.new}
+              onChange={(e) => handlePasswordChange('new', e.target.value)}
+              className="password-field"
             />
           </div>
         </div>
-
-        <div className="password-section">
-          <h3 className="section-title">Change Password</h3>
-          <div className="password-form">
-            <div className="password-group">
-              <label className="form-label">Current Password</label>
-              <div className="password-input-container">
-                <input
-                  type={showCurrentPassword ? "text" : "password"}
-                  value={passwords.current}
-                  onChange={(e) => handlePasswordChange('current', e.target.value)}
-                  className="form-input password-input"
-                />
-                <button
-                  type="button"
-                  className="password-toggle-btn"
-                  onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-                >
-                  {showCurrentPassword ? <EyeOff className="eye-icon" /> : <Eye className="eye-icon" />}
-                </button>
-              </div>
-            </div>
-            <div className="password-group">
-              <label className="form-label">New Password</label>
-              <div className="password-input-container">
-                <input
-                  type={showNewPassword ? "text" : "password"}
-                  value={passwords.new}
-                  onChange={(e) => handlePasswordChange('new', e.target.value)}
-                  className="form-input password-input"
-                />
-                <button
-                  type="button"
-                  className="password-toggle-btn"
-                  onClick={() => setShowNewPassword(!showNewPassword)}
-                >
-                  {showNewPassword ? <EyeOff className="eye-icon" /> : <Eye className="eye-icon" />}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="form-actions">
-          <button className="save-btn btn-primary" onClick={handleSave}>
-            Save
-          </button>
-        </div>
       </div>
+
+      {/* Save Button */}
+      <div className="save-container">
+        <button className="save-button" onClick={handleSave}>
+          Save
+        </button>
+      </div>
+      
     </div>
   );
 };

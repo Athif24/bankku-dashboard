@@ -1,15 +1,22 @@
 .App {
   min-height: 100vh;
+  height: 100vh; /* Ensure app takes full viewport height */
+}
+
+/* Ensure html and body take full height */
+html, body {
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+#root {
+  height: 100%;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .dashboard-row {
     grid-template-columns: 1fr !important;
-  }
-  
-  .sidebar {
-    width: 200px;
   }
   
   .chart-content {
@@ -23,18 +30,6 @@
 }
 
 @media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    position: fixed;
-    left: -100%;
-    z-index: 1000;
-    transition: left var(--transition-normal);
-  }
-  
-  .sidebar.open {
-    left: 0;
-  }
-  
   .page-content {
     padding: var(--spacing-md);
   }

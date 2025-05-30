@@ -1,58 +1,226 @@
 .security-tab {
-  margin-top: var(--spacing-xl);
+  padding: 30px;
+  background: white;
+  max-width: 100%;
 }
 
-.two-factor-section {
-  margin-bottom: var(--spacing-2xl);
+/* Security Group */
+.security-group {
+  margin-bottom: 35px;
 }
 
-.two-factor-setting {
+.security-group:first-child {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: var(--spacing-lg);
+  align-items: flex-start;
+  padding-bottom: 25px;
 }
 
-.setting-text {
-  color: var(--gray-700);
+.section-info {
+  flex: 1;
 }
 
-.password-section {
-  margin-bottom: var(--spacing-2xl);
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #232323;
+  margin-bottom: 8px;
+  line-height: 1.2;
 }
 
-.password-form {
+.section-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #718096;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Toggle Switch */
+.toggle-wrapper {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-lg);
+  align-items: flex-start;
+  padding-top: 5px;
 }
 
-.password-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.password-input-container {
+.security-toggle {
   position: relative;
-}
-
-.password-input {
-  padding-right: 40px;
-}
-
-.password-toggle-btn {
-  position: absolute;
-  right: var(--spacing-sm);
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
   cursor: pointer;
-  color: var(--gray-500);
 }
 
-.eye-icon {
-  width: 20px;
-  height: 20px;
+.toggle-checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-track {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #E2E8F0;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.toggle-track:before {
+  content: "";
+  position: absolute;
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-checkbox:checked + .toggle-track {
+  background: #1E90FF;
+}
+
+.toggle-checkbox:checked + .toggle-track:before {
+  transform: translateX(25px);
+}
+
+/* Password Section */
+.password-section {
+  margin-top: 40px;
+}
+
+.password-fields {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #232323;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.password-field {
+  height: 50px;
+  background: #F5F7FA;
+  border: none;
+  border-radius: 15px;
+  padding: 0 20px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #232323;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.password-field::placeholder {
+  color: #A0AEC0;
+  font-size: 14px;
+}
+
+.password-field:focus {
+  background: #EDF2F7;
+  box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.2);
+}
+
+/* Save Button */
+.save-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+  padding-top: 10px;
+}
+
+.save-button {
+  background: #1E90FF;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 15px 35px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: none;
+}
+
+.save-button:hover {
+  background: #1C7ED6;
+  transform: translateY(-1px);
+}
+
+.save-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .security-tab {
+    padding: 20px;
+  }
+  
+  .security-group:first-child {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+  }
+  
+  .section-subtitle {
+    font-size: 13px;
+  }
+  
+  .password-fields {
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .field-label {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  
+  .password-field {
+    height: 45px;
+    padding: 0 15px;
+  }
+  
+  .save-button {
+    padding: 12px 30px;
+    font-size: 15px;
+  }
+  
+  .security-toggle {
+    width: 45px;
+    height: 22px;
+  }
+  
+  .toggle-track:before {
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    top: 3px;
+  }
+  
+  .toggle-checkbox:checked + .toggle-track:before {
+    transform: translateX(20px);
+  }
 }

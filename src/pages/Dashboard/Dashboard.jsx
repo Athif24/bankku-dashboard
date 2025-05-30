@@ -10,7 +10,8 @@ import './Dashboard.css';
 const Dashboard = () => {
   return (
     <div className="dashboard">
-      <div className="dashboard-row">
+      {/* First Row: My Cards (left) + Recent Transaction (right) */}
+      <div className="dashboard-row row-1">
         <div className="dashboard-main">
           <CreditCard />
         </div>
@@ -19,14 +20,24 @@ const Dashboard = () => {
         </div>
       </div>
       
-      <div className="dashboard-row">
-        <WeeklyActivity />
-        <ExpenseChart />
+      {/* Second Row: Weekly Activity (left) + Expense Statistics (right) */}
+      <div className="dashboard-row row-2">
+        <div className="dashboard-left">
+          <WeeklyActivity />
+        </div>
+        <div className="dashboard-right">
+          <ExpenseChart />
+        </div>
       </div>
       
-      <div className="dashboard-row">
-        <QuickTransfer />
-        <BalanceHistory />
+      {/* Third Row: Quick Transfer (left) + Balance History (right) */}
+      <div className="dashboard-row row-3">
+        <div className="dashboard-left">
+          <QuickTransfer />
+        </div>
+        <div className="dashboard-right">
+          <BalanceHistory />
+        </div>
       </div>
     </div>
   );

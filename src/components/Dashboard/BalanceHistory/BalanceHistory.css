@@ -1,40 +1,180 @@
-.balance-history-section {
-  margin-bottom: var(--spacing-xl);
+.balance-history-wrapper {
+  margin-bottom: 0;
+  width: 100%;
+  height: 100%; /* Take full height of parent */
+  display: flex;
+  flex-direction: column;
 }
 
-.chart-area {
-  margin-top: var(--spacing-xl);
+.balance-history-card {
+  background: white;
+  border-radius: 25px;
+  padding: 30px;
+  border: 1px solid #F5F7FA;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  flex: 1; /* Take remaining space after header */
+  display: flex;
+  flex-direction: column;
 }
 
-.line-chart {
-  height: 200px;
-  margin-bottom: var(--spacing-md);
+.section-header {
+  margin-bottom: 20px;
+  flex-shrink: 0; /* Prevent header from shrinking */
 }
 
-.chart-svg {
+.chart-container {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Allow flex item to shrink */
+}
+
+.chart-wrapper {
+  flex: 1;
+  margin-bottom: 20px;
+  position: relative;
+  background: linear-gradient(to bottom, rgba(59, 130, 246, 0.01) 0%, rgba(59, 130, 246, 0.03) 100%);
+  border-radius: 15px;
+  padding: 20px;
+  min-height: 200px; /* Minimum height for chart */
+}
+
+.balance-chart-svg {
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
+/* Grid lines styling */
 .grid-lines line {
-  opacity: 0.3;
+  stroke: #E5E7EB;
+  stroke-width: 1;
+  opacity: 0.4;
 }
 
-.data-points circle {
-  cursor: pointer;
+/* Y-axis labels styling */
+.y-axis-labels text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 12px;
+  fill: #718EBF;
+  font-weight: 500;
 }
 
-.data-points circle:hover {
-  r: 6;
-}
-
-.x-axis-labels {
+/* Month labels at bottom */
+.month-labels {
   display: flex;
   justify-content: space-between;
-  margin-top: var(--spacing-sm);
+  padding: 0 20px;
+  flex-shrink: 0;
 }
 
 .month-label {
-  font-size: var(--font-size-sm);
-  color: var(--gray-600);
+  font-size: 15px;
+  color: #718EBF;
+  font-weight: 500;
+  text-align: center;
+  flex: 1;
+}
+
+/* Hover effects */
+.balance-chart-svg:hover path[stroke="#1814F3"] {
+  filter: drop-shadow(0 2px 6px rgba(24, 20, 243, 0.3));
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .balance-history-card {
+    padding: 25px;
+  }
+  
+  .chart-wrapper {
+    padding: 18px;
+    margin-bottom: 16px;
+    min-height: 180px;
+  }
+  
+  .month-labels {
+    padding: 0 18px;
+  }
+  
+  .month-label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .balance-history-card {
+    padding: 20px;
+  }
+  
+  .chart-wrapper {
+    padding: 16px;
+    min-height: 160px;
+  }
+  
+  .month-labels {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .balance-history-card {
+    padding: 18px;
+  }
+  
+  .chart-wrapper {
+    padding: 14px;
+    min-height: 140px;
+  }
+  
+  .month-label {
+    font-size: 13px;
+  }
+  
+  .y-axis-labels text {
+    font-size: 11px;
+  }
+  
+  .month-labels {
+    padding: 0 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .balance-history-card {
+    padding: 16px;
+  }
+  
+  .chart-wrapper {
+    padding: 12px;
+    min-height: 120px;
+  }
+  
+  .month-label {
+    font-size: 12px;
+  }
+  
+  .y-axis-labels text {
+    font-size: 10px;
+  }
+  
+  .month-labels {
+    padding: 0 12px;
+  }
+}
+
+/* Animation for smooth appearance */
+@keyframes fadeInChart {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.balance-history-wrapper {
+  animation: fadeInChart 0.6s ease-out;
 }

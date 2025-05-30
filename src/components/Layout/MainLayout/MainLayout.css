@@ -1,16 +1,55 @@
 .main-layout {
   display: flex;
   min-height: 100vh;
-  background-color: var(--gray-50);
+  height: 100vh; /* Set explicit height */
+  background-color: #F9FAFB;
+  position: relative;
 }
 
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  margin-left: 256px; /* Add margin to accommodate fixed sidebar */
+  height: 100vh; /* Ensure full height */
 }
 
 .page-content {
   flex: 1;
-  padding: var(--spacing-xl);
+  padding: 32px 40px;
+  overflow-x: auto;
+  overflow-y: auto; /* Allow vertical scrolling for content */
+  height: calc(100vh - 80px); /* Subtract header height */
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .page-content {
+    padding: 24px 24px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+  }
+  
+  .main-content {
+    width: 100%;
+    margin-left: 0; /* Remove margin on mobile */
+    height: 100vh;
+  }
+  
+  .page-content {
+    padding: 20px;
+    height: calc(100vh - 70px); /* Adjust for mobile header */
+  }
+}
+
+@media (max-width: 480px) {
+  .page-content {
+    padding: 16px;
+  }
 }

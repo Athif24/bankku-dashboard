@@ -1,32 +1,74 @@
 .search-bar {
   position: relative;
+  width: 100%;
+  max-width: 300px; /* Reduced from 400px for better desktop layout */
 }
 
 .search-input {
-  padding-left: 40px;
-  padding-right: var(--spacing-md);
-  padding-top: var(--spacing-sm);
-  padding-bottom: var(--spacing-sm);
-  width: 256px;
-  background-color: var(--gray-50);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  font-size: var(--font-size-sm);
-  transition: all var(--transition-fast);
+  width: 100%;
+  height: 44px; /* Match icon button height */
+  padding: 0 20px 0 48px;
+  background: #F5F7FA;
+  border: 2px solid transparent;
+  border-radius: 40px;
+  font-size: 15px;
+  color: #1F2937;
+  transition: all 0.2s ease;
+  outline: none;
 }
 
-.search-input:focus {
-  outline: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+.search-input::placeholder {
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+.search-bar.focused .search-input,
+.search-input:hover {
+  background: #FFFFFF;
+  border-color: #E5E7EB;
+}
+
+.search-bar.focused .search-input {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 .search-icon {
   position: absolute;
-  left: var(--spacing-sm);
+  left: 18px;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  color: var(--gray-400);
+  color: #6B7280;
+  pointer-events: none;
+}
+
+.search-bar.focused .search-icon {
+  color: #3B82F6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-bar {
+    max-width: 100%;
+  }
+  
+  .search-input {
+    height: 44px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    height: 42px;
+    padding: 0 16px 0 44px;
+  }
+  
+  .search-icon {
+    left: 16px;
+    width: 18px;
+    height: 18px;
+  }
 }

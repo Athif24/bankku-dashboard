@@ -1,20 +1,145 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: 24px;
+  padding: 0;
+  max-width: 100%;
+  width: 100%;
 }
 
+/* All dashboard rows */
 .dashboard-row {
   display: grid;
-  gap: var(--spacing-xl);
-  grid-template-columns: 1fr;
+  gap: 30px;
+  width: 100%;
+  align-items: stretch; /* Important: Ensures all items in row have same height */
 }
 
-.dashboard-row:first-child {
+/* First row: My Cards (2fr) + Recent Transaction (1fr) */
+.dashboard-row.row-1 {
   grid-template-columns: 2fr 1fr;
+  min-height: 350px; /* Set consistent minimum height for row 1 */
 }
 
-.dashboard-row:nth-child(2),
-.dashboard-row:nth-child(3) {
+.dashboard-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-sidebar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Second row: Weekly Activity (2fr) + Expense Statistics (1fr) */
+.dashboard-row.row-2 {
+  grid-template-columns: 2fr 1fr;
+  min-height: 400px; /* Set consistent minimum height for row 2 */
+}
+
+.dashboard-left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Third row: Quick Transfer (1fr) + Balance History (1fr) */
+.dashboard-row.row-3 {
   grid-template-columns: 1fr 1fr;
+  min-height: 350px; /* Set consistent minimum height for row 3 */
+}
+
+/* Ensure all wrappers take full height */
+.dashboard-main > *,
+.dashboard-sidebar > *,
+.dashboard-left > *,
+.dashboard-right > * {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .dashboard {
+    gap: 20px;
+  }
+  
+  .dashboard-row {
+    gap: 24px;
+  }
+  
+  /* Adjust proportions and heights for smaller screens */
+  .dashboard-row.row-1 {
+    grid-template-columns: 1.8fr 1fr;
+    min-height: 320px;
+  }
+  
+  .dashboard-row.row-2 {
+    grid-template-columns: 1.8fr 1fr;
+    min-height: 380px;
+  }
+  
+  .dashboard-row.row-3 {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard {
+    gap: 16px;
+  }
+  
+  .dashboard-row {
+    gap: 20px;
+  }
+  
+  /* Stack vertically on tablet */
+  .dashboard-row.row-1,
+  .dashboard-row.row-2 {
+    grid-template-columns: 1fr;
+    min-height: auto; /* Remove fixed height when stacked */
+  }
+  
+  /* Keep Quick Transfer and Balance History side by side on tablet */
+  .dashboard-row.row-3 {
+    grid-template-columns: 1fr 1fr;
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    gap: 16px;
+  }
+  
+  .dashboard-row {
+    gap: 16px;
+  }
+  
+  /* All components stack vertically on mobile */
+  .dashboard-row.row-1,
+  .dashboard-row.row-2,
+  .dashboard-row.row-3 {
+    grid-template-columns: 1fr;
+    min-height: auto; /* Remove fixed height on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    gap: 12px;
+  }
+  
+  .dashboard-row {
+    gap: 12px;
+  }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { CreditCard as CreditCardIcon } from 'lucide-react';
 import { CREDIT_CARDS } from '../../../data/staticData';
 import { formatCurrency } from '../../../utils/formatters';
 import './CreditCard.css';
@@ -26,7 +25,12 @@ const CreditCard = () => {
                 <p className="balance-amount">{formatCurrency(card.balance)}</p>
               </div>
               <div className="card-chip">
-                <CreditCardIcon className="chip-icon" />
+                {/* Ganti ikon chip dengan gambar */}
+                <img
+                  src={`/assets/images/${card.type === 'primary' ? 'chip-card-white' : 'chip-card-black'}.png`} 
+                  alt="Card Chip"
+                  className="chip-icon"
+                />
               </div>
             </div>
             <div className="card-bottom">

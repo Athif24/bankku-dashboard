@@ -1,11 +1,33 @@
 .settings-page {
-  max-width: 1000px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.settings-container {
-  padding: var(--spacing-2xl);
+.settings-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.settings-card:hover {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
 }
 
 .tab-content {
-  margin-top: var(--spacing-xl);
+  padding: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .settings-page {
+    padding: 10px;
+  }
+  
+  .settings-card {
+    border-radius: 15px;
+  }
 }
